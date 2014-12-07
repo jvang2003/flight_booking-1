@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  airport_id: 
+  date: 2014-12-07 19:43:29
+  flight_duration: 1
+
+two:
+  airport_id: 
+  date: 2014-12-07 19:43:29
+  flight_duration: 1
