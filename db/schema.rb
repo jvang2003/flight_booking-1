@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141207180055) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "airports", force: true do |t|
     t.string   "code"
     t.datetime "created_at"
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 20141207180055) do
     t.integer  "finish_airport_id"
   end
 
-  add_index "flights", ["finish_airport_id"], name: "index_flights_on_finish_airport_id"
-  add_index "flights", ["start_airport_id"], name: "index_flights_on_start_airport_id"
+  add_index "flights", ["finish_airport_id"], name: "index_flights_on_finish_airport_id", using: :btree
+  add_index "flights", ["start_airport_id"], name: "index_flights_on_start_airport_id", using: :btree
 
 end
