@@ -1,0 +1,28 @@
+<h1>Order confirmation</h1>
+<table>
+	<thead>
+		<tr>
+			<th>From</th>
+			<th>To</th>
+			<th>Date</th>
+			<th>Duration</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= @booking.flight.from_airport.code %></td>
+			<td><%= @booking.flight.to_airport.code %></td>
+			<td><%= @booking.flight.format_date %></td>
+			<td><%= @booking.flight.flight_duration %></td>
+		</tr>
+	</tbody>
+</table>
+<h2>Passengers</h2>
+<ul>
+<% @booking.passengers.each do |passenger| %>
+	<li>
+	<p>Name: <%= passenger.name %></p>
+	<p>E-mail: <%= passenger.email %></p>
+	</li>
+<% end %>
+</ul>
