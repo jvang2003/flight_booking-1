@@ -5,5 +5,9 @@ class FlightsController < ApplicationController
 	@number_of_tickets = [['1', 1], ['2', 2], ['3', 3], ['4', 4]]
 
 	@search = Flight.search(params)	
+
+	@tickets = params[:tickets] if params[:tickets]
   end
+
+  
 end

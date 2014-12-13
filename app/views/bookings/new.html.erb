@@ -1,0 +1,34 @@
+<h1>Bookings page</h1>
+<table>
+	<thead>
+		<tr>
+			<th>From</th>
+			<th>To</th>
+			<th>Date</th>
+			<th>Duration</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= @flight.from_airport.code %></td>
+			<td><%= @flight.to_airport.code %></td>
+			<td><%= @flight.format_date %></td>
+			<td><%= @flight.flight_duration %></td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Passenger information</h2>
+<%= form_for(@booking) do |f| %>
+	<%= f.hidden_field(:flight_id, value: @flight_id) %>
+	
+	<%= f.fields_for :passengers do |p| %>
+		<%= p.label :name %>
+		<%= p.text_field :name %>
+		<%= p.label :email %>
+		<%= p.text_field :email %>	
+		<br>
+	<% end %>
+	
+	<%= f.submit %>
+<% end %>

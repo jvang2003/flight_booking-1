@@ -19,11 +19,30 @@
 <% end %>
 
 <% unless @search.nil? %>
-	<ul>
+<%= form_tag(new_booking_path, method: 'get') do %>
+	<table>
+		<thead>
+			<tr>
+				<th>Select</th>
+				<th>From</th>
+				<th>To</th>
+				<th>Date</th>
+				<th>Duration</th>
+			</tr>
+		</thead>
+		<tbody>
 		<% @search.each do |result| %>
-			<li>
-			From:<%= result.from_airport.code %> To: <%= result.to_airport.code %>
-			</li>
-		<% end %>
-	</ul>
+		  <tr>
+		  	<td><%= radio_button_tag(:flight_id, result.id) %></td>
+			<td><%= result.from_airport.code %></td>
+			<td><%= result.to_airport.code %></td>
+			<td><%= result.format_date %></td>
+			<td><%= result.flight_duration %></td>
+			<%= hidden_field_tag(:tickets, @tickets) %>
+		  <tr>
+		  <% end %>
+		</tbody>
+	</table>
+	<%= submit_tag('Select Flight') %>
+<% end %>
 <% end %>

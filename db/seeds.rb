@@ -19,3 +19,9 @@ Flight.create(id: 1, date: DateTime.now, flight_duration: 1, start_airport_id: 1
 Flight.create(id: 2, date: DateTime.tomorrow, flight_duration: 2, start_airport_id: 2, finish_airport_id: 3)
 Flight.create(id: 3, date: DateTime.now, flight_duration: 3, start_airport_id: 3, finish_airport_id: 4)
 Flight.create(id: 4,date: DateTime.now, flight_duration: 1, start_airport_id: 4, finish_airport_id: 5)
+Flight.create(id: 5, date: DateTime.tomorrow, flight_duration: 4, start_airport_id: 2, finish_airport_id: 3)
+Flight.create(id: 6, date: DateTime.tomorrow, flight_duration: 5, start_airport_id: 2, finish_airport_id: 3)
+
+
+
+
