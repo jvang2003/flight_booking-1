@@ -1,5 +1,5 @@
 <h1>Order confirmation</h1>
-<table>
+<table class="table">
 	<thead>
 		<tr>
 			<th>From</th>
@@ -18,9 +18,9 @@
 	</tbody>
 </table>
 <h2>Passengers</h2>
-<ul>
+<ul class="list-group">
 <% @booking.passengers.each do |passenger| %>
-	<li>
+	<li class="list-group-item">
 	<p>Name: <%= passenger.name %></p>
 	<p>E-mail: <%= passenger.email %></p>
 	</li>

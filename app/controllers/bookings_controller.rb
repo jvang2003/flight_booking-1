@@ -1,11 +1,10 @@
 class BookingsController < ApplicationController
   def new
-  	@flight_id = params[:flight_id]
-  	@tickets = params[:tickets]
-  	@flight = Flight.find(@flight_id)
+  	
+  	@flight = Flight.find(params[:flight_id])
 
   	@booking = Booking.new
-  	@tickets.to_i.times {@booking.passengers.build}
+  	params[:tickets].to_i.times {@booking.passengers.build}
 
   end
 
@@ -14,6 +13,8 @@ class BookingsController < ApplicationController
   	if @booking.save
   		redirect_to @booking
   	else
+  		flash.now[:danger] = "Make sure the passenger information is correct."
+  		@flight = Flight.find(params[:flight_id])
   		render 'new'
   	end
   end

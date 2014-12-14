@@ -1,26 +1,30 @@
 <h1>Flights Booking</h1>
 
-<%= form_tag('/flights', method: 'get') do %>
-	<p> 
-	From airport: <%= select_tag(:start_airport, options_for_select(@airports)) %>
-	</p>
-	<p> 
-	To airport: <%= select_tag(:finish_airport, options_for_select(@airports)) %>
-	</p>
-	<p>
-	Date: <%= select_tag(:date, options_for_select(@flight_dates)) %>	
-	</p>
-	<p>
-	Tickets: <%= select_tag(:tickets, options_for_select(@number_of_tickets)) %>	
-	</p>
-	<p>
-	<%= submit_tag('Search') %>	
-	</p>
+<%= form_tag('/flights', method: 'get', :class => 'form-inline') do %>
+	<div class="form-group">
+	From airport: <%= select_tag(:start_airport, options_for_select(@airports), 
+	:class => 'form-control') %>
+	</div>
+	<div class="form-group">
+	To airport: <%= select_tag(:finish_airport, options_for_select(@airports), 
+	:class => 'form-control') %>
+	</div>
+	<div class="form-group">
+	Date: <%= select_tag(:date, options_for_select(@flight_dates), 
+	:class => 'form-control') %>	
+	</div>
+	<div class="form-group">
+	Tickets: <%= select_tag(:tickets, options_for_select(@number_of_tickets), 
+	:class => 'form-control') %>	
+	</div>
+	
+	<%= submit_tag('Search', :class => 'btn btn-default') %>	
+	
 <% end %>
 
 <% unless @search.nil? %>
 <%= form_tag(new_booking_path, method: 'get') do %>
-	<table>
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>Select</th>
@@ -38,11 +42,12 @@
 			<td><%= result.to_airport.code %></td>
 			<td><%= result.format_date %></td>
 			<td><%= result.flight_duration %></td>
-			<%= hidden_field_tag(:tickets, @tickets) %>
+			
 		  <tr>
 		  <% end %>
 		</tbody>
 	</table>
-	<%= submit_tag('Select Flight') %>
+	<%= hidden_field_tag(:tickets, @tickets) %>
+	<%= submit_tag('Select Flight', :class => 'btn btn-default') %>
 <% end %>
 <% end %>
