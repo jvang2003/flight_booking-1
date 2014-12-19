@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 group :development, :test do 
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
+	gem 'letter_opener'
 end
 
 group :test do
@@ -11,7 +12,6 @@ group :test do
 	gem 'guard-rspec'
 	gem 'launchy'
 	gem 'shoulda'
-	gem 'capybara'
 end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'

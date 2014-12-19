@@ -11,6 +11,9 @@ class BookingsController < ApplicationController
   def create
   	@booking = Booking.new(booking_params)
   	if @booking.save
+      @booking.passengers.each  do |passenger|
+        PassengerMailer.thank_you_email(passenger).deliver
+      end
   		redirect_to @booking
   	else
   		flash.now[:danger] = "Make sure the passenger information is correct."
